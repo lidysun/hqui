@@ -650,5 +650,5 @@ function getParams(path) {
 
 /*测试函数*/
 function test() {
-    return false;
+    return true;
 }
