@@ -1,0 +1,400 @@
+@charset "utf-8";
+/***************************************
+ * name: iconfont
+ * tips: 字体图标
+ ****************************************/
+@font-face {
+  font-family: 'iconfont';  /* project id 739021 */
+  src: url('http://at.alicdn.com/t/font_739021_bpoyyzho9er.eot');
+  src: url('http://at.alicdn.com/t/font_739021_bpoyyzho9er.eot?#iefix') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_739021_bpoyyzho9er.woff') format('woff'),
+  url('http://at.alicdn.com/t/font_739021_bpoyyzho9er.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_739021_bpoyyzho9er.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/***************************************
+ * name: variable
+ * tips: 全局变量
+ ****************************************/
+$theme:#c00;
+$blue:#007bff; 
+$success:#5cb85c; 
+$warm:#eea236;
+$danger:#d9534f;
+
+/***************************************
+ * name: mixin
+ * tips: 混合类
+ ****************************************/
+@mixin btn-size($paddingX:5px,$paddingY:10px,$height:15px,$font-size:14px,$line-height:$height){
+    padding:$paddingX $paddingY;
+    height:$height;
+    line-height:$line-height;
+    font-size:$font-size;
+}
+
+@mixin prefixer($k,$v,$prefixers:webkit moz ms o){
+    @each $pre in $prefixers{
+        @if $pre == webkit{
+            -webkit-#{$k}:$v
+        }@else if $pre == moz{
+            -moz-#{$k}:$v
+        }@else if $pre == ms{
+            -ms-#{$k}:$v
+        }@else{
+            -o-#{$k}:$v
+        }
+    }
+    #{$k}:$v;
+}
+
+@mixin btn-color($bgColor,$bdColor:$bgColor,$color:#fff,$bgHover:darken($bgColor,10%),$bdHover:$bgHover,$colorHover:#fff){
+    background-color:$bgColor;
+    border:1px solid $bdColor;
+    color:$color;
+    &:hover{
+        background-color:$bgHover;
+        border-color:$bdHover;
+        color:$colorHover;
+    }
+}
+
+@mixin input-width($width,$paddingL,$paddingR){
+    width:($width)-($paddingL)-($paddingR)-2px;
+}
+
+/***************************************
+ * name: basic
+ * tips: 基本元素及重置
+ ****************************************/
+/* basic */
+*{margin:0;padding:0;}
+input::-ms-clear,
+input::-ms-reveal{display:none;}
+li{list-style-type:none;}
+
+.link{
+    color:$blue;
+    &:hover{color:darken($blue,10%);}
+}
+a{@extend .link;}
+.highlight{color:$theme;}
+.inline-b{display:inline-block;*zoom:1;*display:inline;}
+
+.cl{
+    &{zoom:1;}
+    &:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
+}
+.fl{float:left;}
+.fr{float:right;}
+.text-v{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+/***************************************
+ * name: button
+ * tips: 按钮
+ ****************************************/
+.btn{
+    &{display:inline-block;text-align:center;text-decoration:none;outline:none;vertical-align:middle;font-weight:400;cursor:pointer;white-space:nowrap;}
+    @include prefixer(transition,all .15s);
+    &.active,&:active{@include prefixer(box-shadow,inset 0 3px 5px rgba(0,0,0,.125));}
+    &.radius{@include prefixer(border-radius,3px);}
+    &.block{display:block;}
+    i{font-style:normal;}
+
+    // sm 22px
+    &.btn-sm{@include btn-size(2px,5px,16px,12px);}
+    // sm 27px
+    &.btn-md{@include btn-size();}
+    // xs 37px
+    &.btn-lg{@include btn-size(8px,12px,19px,18px);}
+
+    &.btn-theme{
+        @include btn-color(
+            $bgColor:$theme,
+            $bgHover:lighten($theme,5%)
+        );
+    }
+    &.btn-default{
+        @include btn-color(
+            $bgColor:#fff,
+            $bdColor:#ccc,
+            $color:#323232,
+            $bgHover:#e6e6e6,
+            $bdHover:#adadad,
+            $colorHover:#323232
+        );
+    }
+    &.btn-success{@include btn-color($bgColor:$success);}
+    &.btn-danger{@include btn-color($bgColor:$danger);}
+    &.btn-warm{@include btn-color($bgColor:$warm);}
+    &.btn-disabled{
+        cursor: not-allowed;
+        @include btn-color(
+            $bgColor:#fbfbfb,
+            $bdColor:#e6e6e6,
+            $color:#c9c9c9,
+            $bgHover:#fbfbfb,
+            $bdHover:#e6e6e6,
+            $colorHover:#c9c9c9
+        );
+    }
+    &.btn-link{
+        @include btn-color(
+            $bgColor:transparent,
+            $color:$blue,
+            $colorHover:darken($blue,10%)
+        );
+    }
+}
+.btn-group{
+    &{display:inline-block;margin:0 8px 8px -1px;@extend .cl;}
+    &>.btn{float:left;margin-left:-1px;}
+    &.btn-group-sm{
+        &>.btn{@extend .btn.btn-sm;}
+        &.radius{
+            &>.btn{
+                &:first-child{
+                    @include prefixer(border-top-left-radius,3px);
+                    @include prefixer(border-bottom-left-radius,3px);
+                }
+                &:last-child{
+                    @include prefixer(border-top-right-radius,3px);
+                    @include prefixer(border-bottom-right-radius,3px);
+                }
+            }
+        }
+    }
+    &.btn-group-md{
+        &>.btn{@extend .btn.btn-md;}
+        &.radius{
+            &>.btn{
+                &:first-child{
+                    @include prefixer(border-top-left-radius,5px);
+                    @include prefixer(border-bottom-left-radius,5px);
+                }
+                &:last-child{
+                    @include prefixer(border-top-right-radius,5px);
+                    @include prefixer(border-bottom-right-radius,5px);
+                }
+            }
+        }
+    }
+    &.btn-group-lg{
+        &>.btn{@extend .btn.btn-lg;}
+        &.radius{
+            &>.btn{
+                &:first-child{
+                    @include prefixer(border-top-left-radius,7px);
+                    @include prefixer(border-bottom-left-radius,7px);
+                }
+                &:last-child{
+                    @include prefixer(border-top-right-radius,7px);
+                    @include prefixer(border-bottom-right-radius,7px);
+                }
+            }
+        }
+    }
+}
+
+/***************************************
+ * name: form
+ * tips: 表单
+ ****************************************/
+.input{
+    &{display:inline-block;border:1px solid #e1e1e1;height:17px;line-height:17px;font-size:14px;outline:none;vertical-align:middle;}
+    &[disabled]{cursor:not-allowed;background-color:#ebebeb;}
+    // &[readonly]:focus{border-color:#e1e1e1;}
+    &.error{border-color:lighten($danger,28%);background-color:lighten($danger,38%);}
+    &:focus{border-color:$theme;}
+    &.input-md{
+        &{padding:4px}
+        &.input-50{@include input-width(50,4,4);}
+        &.input-100{@include input-width(100,4,4);}
+        &.input-150{@include input-width(150,4,4);}
+        &.input-200{@include input-width(200,4,4);}
+        &.input-250{@include input-width(250,4,4);}
+        &.input-300{@include input-width(300,4,4);}
+    }
+    &.input-lg{
+        &{padding:9px}
+        &.input-50{@include input-width(50,9,9);}
+        &.input-100{@include input-width(100,9,9);}
+        &.input-150{@include input-width(150,9,9);}
+        &.input-200{@include input-width(200,9,9);}
+        &.input-250{@include input-width(250,9,9);}
+        &.input-300{@include input-width(300,9,9);}
+    }
+}
+
+.form-group{
+    .form-required,.form-tips{display:inline-block;font-style:normal;vertical-align:middle;}
+    .form-required{margin-right:2px;font-size:16px;color:$theme;}
+    .form-tips{margin-left:4px;font-size:12px;color:#969696;}
+    // form-tips-bottom's padding-left should equal to form-label's width
+    .form-tips-bottom{display:block;padding-left:130px;line-height:16px;max-width:300px;}
+    .form-label{
+        &{display:inline-block;vertical-align:middle;width:130px;text-align:right;color:#646464;font-size:14px;}
+        &.form-label-multiple{line-height:14px;}
+    }
+    .form-item{margin-bottom:15px;}
+    .form-textarea{vertical-align: top;}
+}
+
+.dropdown{
+    &{position:relative;z-index:1;cursor:pointer;padding:4px 0;@extend .input;*display:inline;*margin-right:4px;}
+    &.disabled,&[disabled]{cursor:not-allowed;background-color: #ebebeb;}
+    .dropdown-value,.dropdown-options{position:absolute;z-index:1;}
+    .dropdown-value{*height:25px;top:0;left:4px;right:27px;bottom:0;line-height:25px;color:#646464;border-right:1px solid #e1e1e1;@extend .text-v;}
+    .dropdown-value~.iconfont{position:absolute;z-index:1;text-align:center;right:1px;top:0;bottom:0;font-size:18px;width:25px;line-height:26px;@include prefixer(transition,all .15s);}
+    .dropdown-options{
+        &{display:none;top:25px;left:-1px;right:-1px;border:1px solid #e1e1e1;font-size:12px;color:#969696;background:#fff;}
+        dd{padding:5px 4px;line-height:14px;}
+        dd:hover{background:#f0f0f0;}
+    }
+    &.active,
+    &.active .dropdown-value,
+    &.active .dropdown-options{border-color:$theme;}
+    &.active .dropdown-options{display:block;}
+    &.active .iconfont{color:$theme;@include prefixer(transform,rotate(180deg));}
+    &,&.dropdown-100{@include input-width(100,0,0);}
+    &.dropdown-150{@include input-width(150,0,0);}
+    &.dropdown-200{@include input-width(200,0,0);}
+    &.dropdown-250{@include input-width(250,0,0);}
+    &.dropdown-300{@include input-width(300,0,0);}
+}
+.radio-group,
+.checkbox-group,
+.radio,
+.radio *,
+.checkbox,
+.checkbox *,
+.switch,
+.switch *,
+.form-textarea{@extend .inline-b;}
+.radio{
+    &,*{vertical-align:middle;}
+    &{cursor:pointer;margin-right:10px;}
+    i{font-size:20px;color:#c2c2c2;}
+    span{font-size:14px;color:#646464;}
+    &.radio-success i{color:$success;}
+    &.radio-warm i{color:$warm;}
+    &.radio-danger i{color:$danger;}
+    &.radio-disabled{
+        &{cursor:not-allowed;}
+        i,span{color:#d2d2d2;}
+    }
+}
+.checkbox{
+    &,*{vertical-align:middle;}
+    &{cursor:pointer;margin-right:10px;}
+    i{font-size:16px;color:#c2c2c2;}
+    span{font-size:14px;color:#646464;}
+    &.checkbox-success i{color:$success;}
+    &.checkbox-warm i{color:$warm;}
+    &.checkbox-danger i{color:$danger;}
+    &.checkbox-disabled{
+        &{cursor:not-allowed;}
+        i,span{color:#d2d2d2;}
+    }
+}
+.switch{
+    &,*{vertical-align:top;@include prefixer(transition,all 0.15s);}
+    &{cursor:pointer;margin-right:10px;position:relative;z-index:0;height:16px;line-height:16px;padding:3px 5px;background:#fff;border:1px solid #d2d2d2;color:#999;@include prefixer(border-radius,20px);}
+    span{font-size:12px;margin:0;padding:0 0 0 20px;font-style:normal;font-weight:500;min-width:15px;}
+    i{position:absolute;top:3px;left:5px;right:auto;width:16px;height:16px;border-radius:20px;background:#d2d2d2;}
+    &.switch-active{
+        &{color:#fff;border-color:$theme;background:$theme;}
+        span{padding:0 20px 0 0;}
+        i{background-color:#fff;left:auto;right:5px}
+    }
+    &.switch-active.switch-success{border-color:$success;background:$success;}
+    &.switch-active.switch-warm{border-color:$warm;background:$warm;}
+    &.switch-active.switch-danger{border-color:$danger;background:$danger;}
+}
+.textarea{
+    &{min-height:90px;height:auto;line-height:18px;padding: 4px;resize:none;border-radius: 2px;border:1px solid #e6e6e6;outline:none;}
+    &:focus{border-color:$theme;}
+}
+
+/***************************************
+ * name: breadcrumb
+ * tips: 面包屑导航
+ ****************************************/
+.breadcrumb{
+    &{height: 40px;line-height: 40px;color:#969696;font-size:14px;}
+    .iconfont{font-size:12px;}
+    .link{padding-right:3px;text-decoration:none;}
+    .link+.link{padding-left:3px;}
+    .iconfont,.link{color:#646464;}
+    .trianele{font-family:'simsun';font-style:normal;}
+}
+
+/***************************************
+ * name: pagination
+ * tips: 分页
+ ****************************************/
+.pagination{
+    &{clear:both;height:30px;margin:20px 0;}
+    a{float:left;color:#646464;background:#fff;height:28px;line-height:28px;min-width:18px;padding:0 5px;text-align:center;cursor:pointer;border:1px solid #ddd;margin:0 2px;}
+    .dot{float:left;}
+    .active,.pagination a:hover{color:#fff;background:$theme;border-color:$theme;}
+    .disabled{cursor:not-allowed;background:#ebebeb;color:#d2d2d2;}
+}
+
+/***************************************
+ * name: number-input
+ * tips: 数量加减输入框
+ ****************************************/
+.number-item{
+    &{position:relative;z-index:1;display:inline-block;font-style:normal;vertical-align:top;height:26px;}
+    .minus,
+    .plus{position:absolute;bottom:0;*bottom:-1px;width:20px;height:24px;background:#f5f5f5;border:1px solid #e1e1e1;vertical-align: top;text-align: center;font:20px/24px 'simsun';cursor:pointer;font-style:normal;vertical-align:top;}
+    .minus:hover,
+    .plus:hover{color:#ff6600;border-color:#ff6600;}
+    .disabled{cursor:not-allowed;color:#c8c8c8 !important;border-color:#e1e1e1 !important;}
+    .minus{left:0;}
+    .plus{right:0;}
+    .num{border:1px solid #e1e1e1;height:24px;line-height:24px;padding:0 28px;outline:none;width:50px;}
+    
+    .tips{display:none;position: absolute;left:21px;right:21px;padding:2px;line-height:15px;min-height:15px;border:1px solid #ff6600;background: #fff;font-size:12px;z-index:2; color:#ff6600;}
+    .tips:before{content:"";position:absolute;left:50%;margin-left:-6px;border:6px solid #ff6b11;border-color:transparent;}
+    .tips:after{content:"";position:absolute;left:50%;margin-left:-6px;border:6px solid #fff;border-color:transparent;}
+    .tips-bottom{
+        &{bottom:auto;top:31px;}
+        &:before{bottom:auto;top:-12px;border-bottom-color:#ff6b11;}
+        &:after{bottom:auto;top:-11px;border-bottom-color:#fff;}
+    }
+    .tips-top{
+        &{bottom:31px;top:auto;}
+        &:before{top:auto;bottom:-12px;border-top-color:#ff6b11;}
+        &:after{top:auto;bottom:-11px;border-top-color:#fff;}
+    }
+}
+
+/***************************************
+ * name: slider
+ * tips: 图片轮播
+ ****************************************/
+.slider-container{
+    &{position: relative;z-index:1;}
+    .slider-list{@extend .cl;}
+    .slider-item{list-style-type:none;float:left;}
+    .slider-item>a{display:block;}
+    .slider-item img{vertical-align:top;}
+    .slider-nav{position: absolute;bottom:0;left:0;right:0;text-align:center;padding:0;}
+    .nav{display:inline-block;width:10px;height:10px;margin:5px;vertical-align:middle;border-radius:50%;background:#ccc;cursor:pointer;}
+    .nav.active{background:#fff;}
+    .arrow{position:absolute;width:12px;padding:0 2px;line-height:28px;z-index:1;top:50%;margin-top:-14px;cursor:pointer;background:transparent;*background:#eee;color:#323232;text-align:center;font-family:'simsun';transition:all 0.15s;}
+    .prev{left:0;border-top-right-radius:14px;border-bottom-right-radius:14px;text-align:left;}
+    .next{right:0;border-top-left-radius:14px;border-bottom-left-radius:14px;text-align:right;}
+    &:hover{
+       .arrow{background:rgba(0,0,0,.3);*background:#eee;color:#fff;*color:#323232;} 
+    }
+}

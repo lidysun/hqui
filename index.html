@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hqui</title>
+        <link rel="stylesheet" href="./dist/css/global.css">
+        <script src="./dist/js/jquery-1.11.3.min.js"></script>
+        <style>
+        .ui-item{width:1198px;margin:20px auto 0;padding:10px 10px 150px;text-align:left;border:1px solid #ddd;}
+        .intro-item{margin-bottom:10px;}
+        /* 跑马灯 */
+        .intro-hd{font-size:18px;font-weight:500;margin-bottom:8px;}
+        .marquee-container{border:1px solid #ddd;margin-bottom:15px;width:300px;overflow:hidden;}
+        .marquee-container li{padding:10px;width:280px;border-right:1px solid #fff;background:#f2f2f2;}
+        /* 轮播图 */
+        .slider-container{/*margin:0 auto;*/background:#f1f1f1;}
+        .slider-container img{width:400px;border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div class="ui-item ui-btn">
+            <div class="intro-item hide">
+                <h4 class="intro-hd highlight">btn</h4>
+                <div class="intro-bd">
+                    <a href="" class="btn btn-theme btn-sm">btn-sm</a>
+                    <a href="" class="btn btn-theme btn-md">btn-md</a>
+                    <a href="" class="btn btn-theme btn-lg">btn-lg</a>
+                    <a href="" class="btn btn-theme btn-lg">btn-theme</a>
+                    <a href="" class="btn btn-default btn-lg radius active">btn-default</a>
+                    <a href="" class="btn btn-success btn-lg">btn-success</a>
+                    <a href="" class="btn btn-danger btn-lg">btn-danger</a>
+                    <span href="" class="btn btn-warm btn-lg">btn-warm</span>
+                    <span href="" class="btn btn-disabled btn-lg">btn-disabled</span>
+                    <a href="" class="btn btn-link btn-lg">btn-link&gt;&gt;</a>
+                </div>
+            </div>
+            <div class="intro-item hide">
+                <h4 class="intro-hd highlight">btn-group</h4>
+                <div class="intro-bd">
+                    <span class="btn-group btn-group-sm">
+                        <a href="" class="btn btn-default">btn</a>
+                        <a href="" class="btn btn-default">btn</a>
+                        <a href="" class="btn btn-default">btn</a>
+                    </span>
+                    <span class="btn-group btn-group-sm radius">
+                        <a href="" class="btn btn-default">btn</a>
+                        <a href="" class="btn btn-default">btn</a>
+                        <a href="" class="btn btn-default">btn</a>
+                    </span>
+                    <br>
+                    <span class="btn-group btn-group-md">
+                        <a href="" class="btn btn-default">btn</a>
+                        <a href="" class="btn btn-default">btn</a>
+                        <a href="" class="btn btn-default">btn</a>
+                    </span>
+                    <span class="btn-group btn-group-md radius">
+                        <a href="" class="btn btn-default">btn</a>
+                        <a href="" class="btn btn-default">btn</a>
+                        <a href="" class="btn btn-default">btn</a>
+                    </span>
+                    <br>
+                    <span class="btn-group btn-group-lg">
+                        <a href="" class="btn btn-default">btn</a>
+                        <a href="" class="btn btn-default">btn</a>
+                        <a href="" class="btn btn-default">btn</a>
+                    </span>
+                    <span class="btn-group btn-group-lg radius">
+                        <a href="" class="btn btn-default">btn</a>
+                        <a href="" class="btn btn-default">btn</a>
+                        <a href="" class="btn btn-default">btn</a>
+                    </span>
+                </div>
+            </div>
+            <div class="intro-item hide">
+                <h4 class="intro-hd highlight">input</h4>
+                <div class="intro-bd">
+                    <input type="text" class="input input-md input-50" placeholder="50px">
+                    <input type="text" class="input input-md input-100" placeholder="100px">
+                    <input type="text" class="input input-md input-150" placeholder="150px">
+                    <input type="text" class="input input-md input-200" placeholder="200px">
+                    <input type="text" class="input input-md input-250 error" placeholder="250px">
+                    <input type="text" class="input input-md input-300" placeholder="md:300px*26px">
+                    <br/><br/>
+                    <input type="text" class="input input-lg input-50" placeholder="50px">
+                    <input type="text" class="input input-lg input-100" placeholder="100px">
+                    <input type="text" class="input input-lg input-150" placeholder="150px">
+                    <input type="text" class="input input-lg input-200" placeholder="200px">
+                    <input type="text" class="input input-lg input-250" disabled placeholder="250px">
+                    <input type="text" class="input input-lg input-300" placeholder="lg:300px*36px">
+                </div>
+            </div>
+            <div class="intro-item">
+                <h4 class="intro-hd highlight">form</h4>
+                <div class="intro-bd">
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label class="form-label">姓名：</label>
+                            <input type="text" readonly class="input input-md input-300" value="**刚">
+                            <span class="form-tips form-tips-right">温馨提示</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label class="form-label form-label-multiple">Register Number Bank Info：</label>
+                            <input type="text" class="input input-lg input-300">
+                            <span class="form-tips form-tips-bottom">请查收手机尾号为9120短信</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label class="form-label form-label-multiple">Register Number Bank Info：</label>
+                            <input type="text" class="input input-md input-100">
+                            <a class="btn btn-md btn-default" href="">获取验证码</a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label class="form-label form-label-multiple">Register Number Bank Info：</label>
+                            <input type="text" class="input input-lg input-100">
+                            <a class="btn btn-lg btn-disabled" href=""><i>58</i>s后重新获取</a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label class="form-label">地址：</label>
+                            <div class="dropdown">
+                                <span class="dropdown-value" data-value="-1">省份</span>
+                                <i class="iconfont">&#xe654;</i>
+                                <dl class="dropdown-options">
+                                    <dd class="dropdown-tips" data-value="-1">请选择</dd>
+                                    <dd class="option" data-value="0">中国</dd>
+                                    <dd class="option" data-value="1">United State</dd>
+                                    <dd class="option" data-value="2">英国</dd>
+                                    <dd class="option" data-value="3">法国</dd>
+                                </dl>
+                            </div>
+                            <div class="dropdown dropdown-150">
+                                <span class="dropdown-value" data-value="-1">城市</span>
+                                <i class="iconfont">&#xe654;</i>
+                                <dl class="dropdown-options">
+                                    <dd class="dropdown-tips" data-value="-1">请选择</dd>
+                                    <dd class="option" data-value="0">中国</dd>
+                                    <dd class="option" data-value="1">美国</dd>
+                                    <dd class="option" data-value="2">英国</dd>
+                                    <dd class="option" data-value="3">法国</dd>
+                                </dl>
+                            </div>
+                            <div class="dropdown dropdown-200">
+                                <span class="dropdown-value" data-value="-1">区域</span>
+                                <i class="iconfont">&#xe654;</i>
+                                <dl class="dropdown-options">
+                                    <dd class="dropdown-tips" data-value="-1">请选择</dd>
+                                    <dd class="option" data-value="0">中国</dd>
+                                    <dd class="option" data-value="1">美国</dd>
+                                    <dd class="option" data-value="2">英国</dd>
+                                    <dd class="option" data-value="3">法国</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label class="form-label">单选框：</label>
+                            <div class="radio-group">
+                                <input class="radio-input" type="hidden" value="1">
+                                <div class="radio radio-success radio-active">
+                                    <i class="iconfont">&#xe655;</i>
+                                    <span data-value="1">10后</span>
+                                </div>
+                                <div class="radio radio-warm">
+                                    <i class="iconfont">&#xe6c9;</i>
+                                    <span data-value="2">00后</span>
+                                </div>
+                                <div class="radio radio-danger">
+                                    <i class="iconfont">&#xe6c9;</i>
+                                    <span data-value="3">90后</span>
+                                </div>
+                                <div class="radio">
+                                    <i class="iconfont">&#xe6c9;</i>
+                                    <span data-value="4">80后</span>
+                                </div>
+                                <div class="radio radio-danger radio-disabled">
+                                    <i class="iconfont">&#xe6c9;</i>
+                                    <span data-value="0">上世纪</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label class="form-label">复选框：</label>
+                            <div class="checkbox-group">
+                                <input class="checkbox-input" type="hidden" value="1">
+                                <div class="checkbox checkbox-success checkbox-active">
+                                    <i class="iconfont">&#xe612;</i>
+                                    <span data-value="1">读书</span>
+                                </div>
+                                <div class="checkbox checkbox-warm">
+                                    <i class="iconfont">&#xe60f;</i>
+                                    <span data-value="2">电影</span>
+                                </div>
+                                <div class="checkbox checkbox-danger">
+                                    <i class="iconfont">&#xe60f;</i>
+                                    <span data-value="3">吃鸡</span>
+                                </div>
+                                <div class="checkbox">
+                                    <i class="iconfont">&#xe60f;</i>
+                                    <span data-value="4">睡觉</span>
+                                </div>
+                                <div class="checkbox checkbox-danger checkbox-disabled">
+                                    <i class="iconfont">&#xe60f;</i>
+                                    <span data-value="0">Whatever</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label class="form-label">开关：</label>
+                            <div class="switch"><span data-text="ON/OFF"></span><i></i></div>
+                            <div class="switch switch-success switch-active"><span data-text="选择/不选"></span><i></i></div>
+                            <div class="switch switch-warm switch-active"><span data-text="打开/取消"></span><i></i></div>
+                            <div class="switch switch-danger switch-active"><span data-text="开启/关闭"></span><i></i></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label class="form-label">文本域：</label>
+                            <div class="form-textarea">
+                                <textarea class="textarea" name="" id="" placeholder="请输入"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label class="form-label"></label>
+                            <a href="" class="btn btn-theme btn-md">提&nbsp;交</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="intro-item">
+                <h4 class="intro-hd highlight">breadcrumb</h4>
+                <div class="intro-bd">
+                    <div class="breadcrumb">
+                        <i class="iconfont icon-triangle-right">&#xe623;</i>
+                        <a class="link" href="/">Home</a><i class="trianele">&gt;</i>
+                        <a href="#" class="link">Development Tools</a><i class="trianele">&gt;</i>
+                        <a href="" class="link">Peripheral Modules</a><i class="trianele">&gt;</i>
+                        <span class="nav-current">RF &amp; Wireless Modules</span>
+                    </div>
+                </div>
+            </div>
+            <div class="intro-item">
+                <h4 class="intro-hd highlight">pagination</h4>
+                <div class="intro-bd">
+                    <div class="pagination" data-index="" data-num="1000"></div>
+                </div>
+            </div>
+            <div class="intro-item">
+                <h4 class="intro-hd highlight">number</h4>
+                <div class="intro-bd">
+                    <!-- 无价格数据 -->
+                    <span class="number-item" data-min="100" data-max="403" data-step="100">
+                        <i class="minus">-</i>
+                        <input class="num" type="text" value="1">
+                        <i class="plus">+</i>
+                        <span class="tips tips-bottom"></span>
+                    </span>
+                    <br/>
+                    <br/>
+                    <!-- 有价格数据 -->
+                    单价：&yen;<span id="j_unitPrice">0.00</span>
+                    <span class="number-item number-item-price" data-min="10" data-max="400" data-step="100" data-price='[{"num":"10+","price":"￥5.882"},{"num":"200+","price":"￥3.85"},{"num":"300+","price":"$3.685"},{"num":"400+","price":"￥2.45"}]'>
+                        <i class="minus">-</i>
+                        <input class="num" type="text" value="10">
+                        <i class="plus">+</i>
+                        <span class="tips tips-top"></span>
+                    </span>
+                    总价：&yen;<span id="j_totalPrice">0.00</span>
+                </div>
+            </div>
+            <div class="intro-item">
+                <h4 class="intro-hd highlight">marquee</h4>
+                <div class="intro-bd">
+                    <div class="marquee-container marquee1">
+                        <ul class="marquee-list">
+                            <li class="marquee-item">
+                                <a href="#">
+                                    <p class="name">1深圳高兴电子科技有限公司</p>
+                                    <p class="info">主营：电子元器件</p>
+                                </a>
+                            </li>
+                            <li class="marquee-item">
+                                <a href="#">
+                                    <p class="name">2深圳悲伤电子科技有限公司</p>
+                                    <p class="info">主营：电子连接器</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="marquee-container marquee2">
+                        <ul class="marquee-list">
+                            <li class="marquee-item">
+                                <a href="#">
+                                    <p class="name">A深圳高兴电子科技有限公司</p>
+                                    <p class="info">主营：电子元器件</p>
+                                </a>
+                            </li>
+                            <li class="marquee-item">
+                                <a href="#">
+                                    <p class="name">B深圳悲伤电子科技有限公司</p>
+                                    <p class="info">主营：电子连接器</p>
+                                </a>
+                            </li>
+                            <li class="marquee-item">
+                                <a href="#">
+                                    <p class="name">C深圳高兴电子科技有限公司</p>
+                                    <p class="info">主营：电子元器件</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="marquee-container marquee3">
+                        <ul class="marquee-list">
+                            <li class="marquee-item">
+                                <a href="#">
+                                    <p class="name">1.深圳高兴电子科技有限公司</p>
+                                    <p class="info">主营：电子元器件</p>
+                                </a>
+                            </li>
+                            <li class="marquee-item">
+                                <a href="#">
+                                    <p class="name">2.深圳悲伤电子科技有限公司</p>
+                                    <p class="info">主营：电子连接器</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="marquee-container marquee4">
+                        <ul class="marquee-list">
+                            <li class="marquee-item">
+                                <a href="#">
+                                    <p class="name">I.深圳高兴电子科技有限公司</p>
+                                    <p class="info">主营：电子元器件</p>
+                                </a>
+                            </li>
+                            <li class="marquee-item">
+                                <a href="#">
+                                    <p class="name">II.深圳悲伤电子科技有限公司</p>
+                                    <p class="info">主营：电子连接器</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="intro-item">
+                <h4 class="intro-hd highlight">slider</h4>
+                <div class="intro-bd">
+                    <div class="slider-container">
+                        <ul class="slider-list">
+                            <li class="slider-item">
+                                <a href="javascript:void(0)">
+                                    <img src="./dist/img/1.jpg" />
+                                </a>
+                            </li>
+                            <li class="slider-item">
+                                <a href="javascript:void(0)">
+                                    <img src="./dist/img/2.jpg" />
+                                </a>
+                            </li>
+                            <li class="slider-item">
+                                <a href="javascript:void(0)">
+                                    <img src="./dist/img/3.jpg" />
+                                </a>
+                            </li>
+                            <li class="slider-item">
+                                <a href="javascript:void(0)">
+                                    <img src="./dist/img/4.jpg" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./src/js/hqui.js"></script>
+    </body>
+</html>
