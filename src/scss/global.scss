@@ -417,6 +417,13 @@ a{@extend .link;}
         .tab-title{bottom:-1px;border-bottom:2px solid transparent;}
         .tab-title.active{border-color:$theme;}
     }
+    //卡片风格
+    &.tab-card{
+        &{border:1px solid $border;}
+        .tab-head{background:#f2f2f2;}
+        .tab-title{bottom:-1px;border:1px solid transparent;border-top:0 none;margin:-1px 0 0 -1px;}
+        .tab-title.active{background:#fff;border-color:$border $border #fff;}
+    }
     .tab-title.active,
     .tab-title.active>a{color:$theme;}
     .tab-body{padding:10px;}
