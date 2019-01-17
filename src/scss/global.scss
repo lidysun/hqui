@@ -23,7 +23,7 @@
  * name: variable
  * tips: 全局变量
  ****************************************/
-$theme:#c00;
+$theme:#ff6600;
 $blue:#007bff; 
 $success:#5cb85c; 
 $warm:#eea236;
@@ -332,6 +332,18 @@ a{@extend .link;}
 }
 
 /***************************************
+ * name: badge
+ * tips: 微章
+ ****************************************/
+.badge{display:inline-block;min-width: 10px;padding: 2px 6px;font-size: 12px;line-height: 1;color: #fff;text-align: center;white-space: nowrap;vertical-align: middle;background-color:#777;border-radius: 10px;}
+.badge-dot{display:inline-block;width:8px;height:8px;padding:0;border-radius:50%;background-color:#777;font-size:0;text-indent:-999999px;}
+@each $c in theme,blue,success,warm,danger{
+    .badge-#{$c}{
+       &{background-color:map-get($colors,$c);}
+    }
+}
+
+/***************************************
  * name: breadcrumb
  * tips: 面包屑导航
  ****************************************/
@@ -442,7 +454,7 @@ a{@extend .link;}
  * name: progress
  * tips: 进度条
  ****************************************/
- .progress{
+.progress{
     &{position: relative;z-index:1;border-radius:20px;background:#e2e2e2;}
     .progress-bar{position:absolute;top:0;left:0;bottom:0;border-radius:20px;max-width:100%;transition: all .3s;}
     .progress-txt{font-size:12px;}
@@ -462,4 +474,26 @@ a{@extend .link;}
            .progress-bar{background-color:map-get($colors,$color);}  
         }
     }
- }
+}
+
+/***************************************
+ * name: list-group
+ * tips: 列表组
+ ****************************************/
+.list-group{
+    .list-group-item{position:relative;display:block;line-height:16px;padding:10px 15px;border:1px solid #ddd;margin-bottom:-1px;z-index:1;text-decoration:none;cursor:pointer;transition:all 0.3s;}
+    .list-group-item>.badge,
+    .list-group-item>.badge-dot{float:right;}
+    .list-group-item>.badge-dot{margin-top:4px;}
+    .list-group-item:first-child{border-top-left-radius: 4px;border-top-right-radius: 4px;}
+    .list-group-item:last-child{border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;}
+    .list-group-item:hover{background:#f2f2f2;}
+    .list-group-item.disabled,
+    .list-group-item.disabled:hover{color:#c9c9c9;cursor: not-allowed;background-color:#e6e6e6;}
+    @each $color in theme,blue,success,warm,danger{
+        .list-group-item-#{$color}{
+           &{color:darken(map-get($colors,$color), 20%);background-color:lighten(map-get($colors,$color),35%);border-top-color:lighten(map-get($colors,$color),33%);}
+           &:hover{background-color:lighten(map-get($colors,$color),30%);}
+        }
+    }
+}

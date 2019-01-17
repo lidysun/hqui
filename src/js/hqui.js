@@ -598,7 +598,7 @@ $(function() {
             }
         });
     };
-    $('.progress').progress(false, false);
+    $('.progress').progress(false, true);
 });
 
 /***************************************
