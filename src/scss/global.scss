@@ -212,6 +212,34 @@ a{@extend .link;}
 }
 
 /***************************************
+ * name: search
+ * tips: 搜索框
+ ****************************************/
+.u-search{
+    &{height:40px;display:inline-block;*display:inline;zoom:1;}
+    &:after,
+    & .search-form:after,
+    & .search-input-wrap:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+    .search-form{position:relative;z-index:0;}
+    .search-input-wrap,
+    .dropdown,
+    .search-input,
+    .btn-search{float:left;}
+    .search-input-wrap{border:3px solid $theme;border-right:0;}
+    .dropdown{
+        &{height:26px;line-height:26px;border:none;border-right:1px solid #e1e1e1;width:80px;}
+        .dropdown-options{left:-3px;top:34px;border-top-width:3px;}
+        .dropdown-value{*height:34px;line-height:34px;left:0;border-right:0;text-align:center;@extend .text-v;}
+        .dropdown-value~.iconfont{line-height:34px;}
+    }
+    .search-input{border:0;outline:0;margin:0;padding:0 0 0 10px;height:34px;line-height:34px;vertical-align:middle;text-transform:uppercase;color:#323232;font-size:15px;}
+    .search-input-main{width:250px;}
+    .search-input-other{border-left:1px solid #e4e4e4;width:90px;}
+    .btn-search{font-size:16px;color:#fff;width:80px;height:40px;line-height:40px;border-radius: 0 5px 5px 0;margin:0;border:0;background:$theme;transition:all 0.3s;}
+    .btn-search:hover{background:lighten($theme, 5%);}
+}
+
+/***************************************
  * name: form
  * tips: 表单
  ****************************************/
