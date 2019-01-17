@@ -599,6 +599,24 @@ $(function() {
         });
     };
     $('.progress').progress(false, true);
+    //手风琴
+    $.fn.collapse = function(event) {
+        return $(this).each(function() {
+            var $me = $(this),
+                $hds = $me.find('.collapse-hd'),
+                $items = $me.find('.collapse-item');
+            $me.find('.active .collapse-bd').show();
+            $hds.on(event, function(e) {
+                var $item = $(this).parent('.collapse-item'),
+                    isActived = $item.hasClass('active');
+                if (!isActived) {
+                    $items.removeClass('active').find('.collapse-bd').stop().slideUp();
+                    $item.addClass('active').find('.collapse-bd').stop().slideDown();
+                }
+            });
+        });
+    };
+    $('.collapse').collapse('click');
 });
 
 /***************************************
