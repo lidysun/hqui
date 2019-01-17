@@ -580,11 +580,25 @@ $(function() {
                 $btns.removeClass('active');
                 $btn.addClass('active');
                 $item.removeClass('active').eq(index).addClass('active');
+                callback && callback(index); //参数index为当前激活索引 
                 e.preventDefault();
             });
         });
     };
     $('.tab').tab();
+    //进度条 value设定百分比字符串,如'36.6%';showValue是否显示进度百分比值
+    $.fn.progress = function(percent, showValue) {
+        return $(this).each(function() {
+            var $me = $(this),
+                val = percent || parseFloat($me.attr('data-value')) + '%';
+            $bar = $me.find('.progress-bar');
+            $bar.css('width', val);
+            if (showValue) {
+                $('<span class="progress-txt">' + val + '</span>').appendTo($bar);
+            }
+        });
+    };
+    $('.progress').progress(false, false);
 });
 
 /***************************************

@@ -29,6 +29,13 @@ $success:#5cb85c;
 $warm:#eea236;
 $danger:#d9534f;
 $border:#e6e6e6;
+$colors:(
+    theme:$theme,
+    blue:$blue,
+    success:$success,
+    warm:$warm,
+    danger:$danger
+);
 
 /***************************************
  * name: mixin
@@ -430,3 +437,29 @@ a{@extend .link;}
     .tab-item{display:none;}
     .tab-item.active{display:block;}
 }
+
+/***************************************
+ * name: progress
+ * tips: 进度条
+ ****************************************/
+ .progress{
+    &{position: relative;z-index:1;border-radius:20px;background:#e2e2e2;}
+    .progress-bar{position:absolute;top:0;left:0;bottom:0;border-radius:20px;max-width:100%;transition: all .3s;}
+    .progress-txt{font-size:12px;}
+    &.progress-sm{
+        &{height:6px;}
+        .progress-txt{position:absolute;right:0;bottom:8px;}
+    }
+    &.progress-lg{
+        &{height:18px;text-align:right;}
+        .progress-txt{display:inline-block;vertical-align:top;padding:0 6px;line-height:18px;}
+    }
+    &.progress-striped{
+        .progress-bar{background-image:linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);background-size: 40px 40px;}
+    }
+    @each $color in theme,blue,success,warm,danger{
+        &.progress-#{$color}{
+           .progress-bar{background-color:map-get($colors,$color);}  
+        }
+    }
+ }

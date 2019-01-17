@@ -6,20 +6,19 @@
         <link rel="stylesheet" href="./dist/css/global.css">
         <script src="./dist/js/jquery-1.11.3.min.js"></script>
         <style>
-        .ui-item{width:1198px;margin:20px auto 0;padding:10px 10px 150px;text-align:left;border:1px solid #ddd;}
-        .intro-item{margin-bottom:10px;}
+        .ui-wrap{width:90%;margin:20px auto;padding:10px 10px 150px;text-align:left;border:1px solid #ddd;}
+        .intro-item{margin-bottom:20px;}
         /* 跑马灯 */
-        .intro-hd{font-size:18px;font-weight:500;margin-bottom:8px;}
+        .intro-hd{font-size:18px;line-height:18px;font-weight:500;margin-bottom:15px;padding-left:10px;border-left:4px solid #cc0000;}
         .marquee-container{border:1px solid #ddd;margin-bottom:15px;width:300px;overflow:hidden;}
         .marquee-container li{padding:10px;width:280px;border-right:1px solid #fff;background:#f2f2f2;}
         /* 轮播图 */
-        .slider-container{/*margin:0 auto;*/background:#f1f1f1;}
+        .slider-container{background:#f1f1f1;}
         .slider-container img{width:400px;border:none;}
-        
         </style>
     </head>
     <body>
-        <div class="ui-item ui-btn">
+        <div class="ui-wrap">
             <div class="intro-item hide">
                 <h4 class="intro-hd highlight">btn</h4>
                 <div class="intro-bd">
@@ -423,6 +422,38 @@
                             <div class="tab-item active">tab-card 内容2</div>
                             <div class="tab-item">tab-card 内容3</div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="intro-item">
+                <h4 class="intro-hd highlight">progress(进度条)</h4>
+                <div class="intro-bd">
+                    <div class="progress progress-sm progress-theme" data-value="36.5%">
+                        <div class="progress-bar"></div>
+                    </div>
+                    </br>
+                    <div class="progress progress-sm progress-blue" data-value="40%">
+                        <div class="progress-bar"></div>
+                    </div>
+                    </br>
+                    <div class="progress progress-sm progress-success" data-value="45%">
+                        <div class="progress-bar"></div>
+                    </div>
+                    </br>
+                    <div class="progress progress-sm progress-warm" data-value="47%">
+                        <div class="progress-bar"></div>
+                    </div>
+                    </br>
+                    <div class="progress progress-sm progress-danger" data-value="40%">
+                        <div class="progress-bar"></div>
+                    </div>
+                    </br>
+                    <div class="progress progress-lg progress-success" data-value="30%">
+                        <div class="progress-bar"></div>
+                    </div>
+                    </br>
+                    <div class="progress progress-lg progress-success progress-striped" data-value="60%">
+                        <div class="progress-bar"></div>
                     </div>
                 </div>
             </div>
