@@ -28,6 +28,7 @@ $blue:#007bff;
 $success:#5cb85c; 
 $warm:#eea236;
 $danger:#d9534f;
+$border:#e6e6e6;
 
 /***************************************
  * name: mixin
@@ -397,4 +398,19 @@ a{@extend .link;}
     &:hover{
        .arrow{background:rgba(0,0,0,.3);*background:#eee;color:#fff;*color:#323232;} 
     }
+}
+
+/***************************************
+ * name: tab
+ * tips: 选项卡
+ ****************************************/
+.tab{
+    .tab-head{@extend .cl;border-bottom:1px solid $border;}
+    .tab-title{float:left;padding:0 15px;line-height:40px;position:relative;z-index:0;bottom:-1px;text-align:center;cursor:pointer;border:1px solid transparent;}
+    .tab-title.active,
+    .tab-title.active>a{color:$theme;}
+    .tab-title.active{border-color:$border $border #fff;}
+    .tab-body{padding:10px;}
+    .tab-item{display:none;}
+    .tab-item.active{display:block;}
 }

@@ -568,6 +568,21 @@ $(function() {
         nav: true,
         arrow: true
     });
+    //tab切换
+    $.fn.tab = function(callback) {
+        var $me = $(this),
+            $btns = $me.find('.tab-title'),
+            $item = $me.find('.tab-item');
+        $me.on('click', '.tab-title', function(e) {
+            var $btn = $(this),
+                index = $btn.index();
+            $btns.removeClass('active');
+            $btn.addClass('active');
+            $item.removeClass('active').eq(index).addClass('active');
+            e.preventDefault();
+        });
+    };
+    $('.tab').tab();
 });
 
 /***************************************
