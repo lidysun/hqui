@@ -406,10 +406,19 @@ a{@extend .link;}
  ****************************************/
 .tab{
     .tab-head{@extend .cl;border-bottom:1px solid $border;}
-    .tab-title{float:left;padding:0 15px;line-height:40px;position:relative;z-index:0;bottom:-1px;text-align:center;cursor:pointer;border:1px solid transparent;}
+    .tab-title{float:left;padding:0 15px;line-height:40px;position:relative;z-index:0;text-align:center;cursor:pointer;}
+    //默认风格
+    &.tab-default{
+        .tab-title{bottom:-1px;border:1px solid transparent;}
+        .tab-title.active{border-color:$border $border #fff;}
+    }
+    //简洁风格
+    &.tab-brief{
+        .tab-title{bottom:-1px;border-bottom:2px solid transparent;}
+        .tab-title.active{border-color:$theme;}
+    }
     .tab-title.active,
     .tab-title.active>a{color:$theme;}
-    .tab-title.active{border-color:$border $border #fff;}
     .tab-body{padding:10px;}
     .tab-item{display:none;}
     .tab-item.active{display:block;}

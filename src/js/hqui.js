@@ -6,7 +6,7 @@ $(function() {
     //placeholder兼容
     $.fn.placeholder = function() {
         if (!("placeholder" in document.createElement("input"))) {
-            $(this).each(function(n, item) {
+            return $(this).each(function(n, item) {
                 var $me = $(item),
                     placeholder = $me.attr("placeholder");
                 $me.val(placeholder);
@@ -570,16 +570,18 @@ $(function() {
     });
     //tab切换
     $.fn.tab = function(callback) {
-        var $me = $(this),
-            $btns = $me.find('.tab-title'),
-            $item = $me.find('.tab-item');
-        $me.on('click', '.tab-title', function(e) {
-            var $btn = $(this),
-                index = $btn.index();
-            $btns.removeClass('active');
-            $btn.addClass('active');
-            $item.removeClass('active').eq(index).addClass('active');
-            e.preventDefault();
+        return $(this).each(function() {
+            var $me = $(this),
+                $btns = $me.find('.tab-title'),
+                $item = $me.find('.tab-item');
+            $me.on('click', '.tab-title', function(e) {
+                var $btn = $(this),
+                    index = $btn.index();
+                $btns.removeClass('active');
+                $btn.addClass('active');
+                $item.removeClass('active').eq(index).addClass('active');
+                e.preventDefault();
+            });
         });
     };
     $('.tab').tab();
