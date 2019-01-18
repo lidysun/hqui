@@ -602,18 +602,35 @@ $(function() {
     //手风琴
     $.fn.collapse = function(event) {
         return $(this).each(function() {
-            var $me = $(this),
-                $hds = $me.find('.collapse-hd'),
-                $items = $me.find('.collapse-item');
-            $me.find('.active .collapse-bd').show();
-            $hds.on(event, function(e) {
+            var $me = $(this);
+            var $items = $me.find('.collapse-item');
+            var $initActive = $me.find('.collapse-item.active');
+            var $trangles = $me.find('.collapse-triangle');
+            var $bds = $me.find('.collapse-bd');
+            showThis($initActive, true);
+            $me.on(event, '.collapse-hd', function(e) {
                 var $item = $(this).parent('.collapse-item'),
                     isActived = $item.hasClass('active');
                 if (!isActived) {
-                    $items.removeClass('active').find('.collapse-bd').stop().slideUp();
-                    $item.addClass('active').find('.collapse-bd').stop().slideDown();
+                    showThis($item, false);
                 }
             });
+
+            function showThis($ele, isInit) {
+                var $itemBd = $ele.find('.collapse-bd');
+                var $itemTriangle = $ele.find('.collapse-triangle');
+                $items.removeClass('active');
+                $trangles.html('&#xe654;');
+                $ele.addClass('active');
+                $itemTriangle.html('&#xe61d;');
+                if (isInit) {
+                    $bds.hide();
+                    $itemBd.show();
+                } else {
+                    $bds.slideUp();
+                    $itemBd.slideDown();
+                }
+            }
         });
     };
     $('.collapse').collapse('click');
