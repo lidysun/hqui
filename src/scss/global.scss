@@ -29,6 +29,13 @@ $success:#5cb85c;
 $warm:#eea236;
 $danger:#d9534f;
 $border:#e6e6e6;
+$browsers:(
+    webkit:'webkit',
+    moz:'moz',
+    ms:'ms',
+    o:'o',
+    default:''
+);
 $colors:(
     theme:$theme,
     blue:$blue,
@@ -496,13 +503,33 @@ a{@extend .link;}
         .progress-txt{display:inline-block;vertical-align:top;padding:0 6px;line-height:18px;}
     }
     &.progress-striped{
-        .progress-bar{background-image:linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);background-size: 40px 40px;}
+        .progress-bar{background-image:linear-gradient(45deg,rgba(255,255,255,0.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 75%,transparent 75%,transparent);background-size: 40px 40px;@include prefixer(animation,progress-bar-stripes 2s linear infinite);}
     }
     @each $color in theme,blue,success,warm,danger{
         &.progress-#{$color}{
            .progress-bar{background-color:map-get($colors,$color);}  
         }
     }
+}
+@-webkit-keyframes progress-bar-stripes {
+    from {background-position: 40px 0;}
+    to {background-position: 0 0;}
+}
+@-moz-keyframes progress-bar-stripes {
+    from {background-position: 40px 0;}
+    to {background-position: 0 0;}
+}
+@-ms-keyframes progress-bar-stripes {
+    from {background-position: 40px 0;}
+    to {background-position: 0 0;}
+}
+@-o-keyframes progress-bar-stripes {
+    from {background-position: 40px 0;}
+    to {background-position: 0 0;}
+}
+@keyframes progress-bar-stripes {
+    from {background-position: 40px 0;}
+    to {background-position: 0 0;}
 }
 
 /***************************************
