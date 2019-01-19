@@ -604,19 +604,36 @@ a{@extend .link;}
  * name: grid
  * tips: 栅格系统 一行10个col单元
  ****************************************/
+.grid{
+     &{width:100%;margin-left:auto;margin-right:auto;}
+     .row{width:100%;@extend .cl;}
+     .col{height:100%;padding:0;position:relative;*position:relative;@include prefixer(transition,all .3s ease-out);}
+     //内容之间的空隙边框等占位属性请设置于col-content上,切忌设置在col上,col只负责宽度和浮动
+     .col-content{padding:5px 10px;}
+ }
+/*@-webkit-viewport{ width: device-width;}
+@-moz-viewport{ width: device-width;}
+@-ms-viewport{ width: device-width;}
+@-o-viewport{ width: device-width;}
+@viewport{ width: device-width;} */
+
 $gridTotal:10;
 //宽度比例 始终不变,无需加xs sm md lg
 @for $i from 1 to $gridTotal+1{
     $w:($i/$gridTotal)*100%;
     .col-#{$i}{float:left;width:$w;}
-} 
+}
+@mixin gridFloat($pre){
+    [class*=#{$pre}]{float:left;}
+}
 @mixin gridSpecial($pre){
-    .col-#{$pre}-third{float:left;width:(1/3)*100%;}//三等分
-    .col-#{$pre}-fourth{float:left;width:(1/4)*100%;}//四等分
-    .col-#{$pre}-sixth{float:left;width:(1/6)*100%;}//六等分
-    .col-#{$pre}-seventh{float:left;width:(1/7)*100%;}//七等分
-    .col-#{$pre}-eighth{float:left;width:(1/8)*100%;}//八等分
-    .col-#{$pre}-ninth{float:left;width:(1/9)*100%;}//九等分
+    @include gridFloat(col-#{$pre});
+    .col-#{$pre}-third{width:(1/3)*100%;}//三等分
+    .col-#{$pre}-fourth{width:(1/4)*100%;}//四等分
+    .col-#{$pre}-sixth{width:(1/6)*100%;}//六等分
+    .col-#{$pre}-seventh{width:(1/7)*100%;}//七等分
+    .col-#{$pre}-eighth{width:(1/8)*100%;}//八等分
+    .col-#{$pre}-ninth{width:(1/9)*100%;}//九等分
 }
 @mixin gridDisplay($pre){
     .#{$pre}-hide{display:none;}
@@ -624,9 +641,10 @@ $gridTotal:10;
     .#{$pre}-inline{display:inline-block;}
 }
 @mixin gridLoopFunc($pre){
+    @include gridFloat(con-#{$pre});
     @for $i from 1 to $gridTotal+1{
         $w:($i/$gridTotal)*100%;
-        .col-#{$pre}-#{$i}{float:left;width:$w;}
+        .col-#{$pre}-#{$i}{width:$w;max-width:$w;}
         .#{$pre}-pull-#{$i}{left:$w;}//pull为设置left值
         .#{$pre}-offset-#{$i}{margin-left:$w;}//pull为设置marginLeft值
     }
@@ -653,20 +671,4 @@ $gridTotal:10;
 }
 @media print{
     .grid{width:auto}
-}
-.grid{
-    &{width:100%;margin-left:auto;margin-right:auto;}
-    .row{width:100%;@extend .cl;}
-    .col{height:100%;padding:0;position:relative;*position:relative;@include prefixer(transition,all .3s ease-out);}
-    //内容之间的空隙边框等占位属性请设置于col-content上,切忌设置在col上,col只负责宽度和浮动
-    .col-content{padding:5px 10px;}
-    // .row>.col+.col{}
-    // .row>.col+.col+.col{margin-left:-1px;}
-    // .row>.col+.col+.col+.col{margin-left:-1px;}
-    // .row>.col+.col+.col+.col+.col{margin-left:-1px;}
-    // .row>.col+.col+.col+.col+.col+.col{margin-left:-1px;}
-    // .row>.col+.col+.col+.col+.col+.col+.col{margin-left:-1px;}
-    // .row>.col+.col+.col+.col+.col+.col+.col+.col .col-content{margin-left:-1px;}
-    // .row>.col+.col+.col+.col+.col+.col+.col+.col+.col{margin-left:-1px;}
-    // .row>.col+.col+.col+.col+.col+.col+.col+.col+.col+.col{margin-left:-1px;}
 }
