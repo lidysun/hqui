@@ -627,6 +627,8 @@ $gridTotal:10;
     @for $i from 1 to $gridTotal+1{
         $w:($i/$gridTotal)*100%;
         .col-#{$pre}-#{$i}{float:left;width:$w;}
+        .#{$pre}-pull-#{$i}{left:$w;}//pull为设置left值
+        .#{$pre}-offset-#{$i}{margin-left:$w;}//pull为设置marginLeft值
     }
 }
 @mixin gridWidth($pre){
@@ -655,7 +657,7 @@ $gridTotal:10;
 .grid{
     &{width:100%;margin-left:auto;margin-right:auto;}
     .row{@extend .cl;}
-    .col{height:100%;position:relative;}
+    .col{height:100%;position:relative;@include prefixer(transition,all .3s ease-out);}
     //内容之间的空隙边框等占位属性请设置于col-content上,切忌设置在col上,col只负责宽度和浮动
     .col-content{padding:5px 10px;}
 }
