@@ -656,8 +656,17 @@ $gridTotal:10;
 }
 .grid{
     &{width:100%;margin-left:auto;margin-right:auto;}
-    .row{@extend .cl;}
-    .col{height:100%;position:relative;@include prefixer(transition,all .3s ease-out);}
+    .row{width:100%;@extend .cl;}
+    .col{height:100%;padding:0;position:relative;*position:relative;@include prefixer(transition,all .3s ease-out);}
     //内容之间的空隙边框等占位属性请设置于col-content上,切忌设置在col上,col只负责宽度和浮动
     .col-content{padding:5px 10px;}
+    // .row>.col+.col{}
+    // .row>.col+.col+.col{margin-left:-1px;}
+    // .row>.col+.col+.col+.col{margin-left:-1px;}
+    // .row>.col+.col+.col+.col+.col{margin-left:-1px;}
+    // .row>.col+.col+.col+.col+.col+.col{margin-left:-1px;}
+    // .row>.col+.col+.col+.col+.col+.col+.col{margin-left:-1px;}
+    // .row>.col+.col+.col+.col+.col+.col+.col+.col .col-content{margin-left:-1px;}
+    // .row>.col+.col+.col+.col+.col+.col+.col+.col+.col{margin-left:-1px;}
+    // .row>.col+.col+.col+.col+.col+.col+.col+.col+.col+.col{margin-left:-1px;}
 }

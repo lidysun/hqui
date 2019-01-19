@@ -3,9 +3,18 @@
     <head>
         <meta charset="UTF-8">
         <title>Hqui</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./dist/css/global.css">
+        <link href="./dist/css/global.css" rel="stylesheet">
         <script src="./dist/js/jquery-1.11.3.min.js"></script>
+        <script>
+            $(function(){
+               $(window).resize(function(){
+                    var $width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+                    $('#j_windowWidth').text('屏幕宽'+ $width + 'px');
+                }).resize();
+            });
+        </script>
         <style>
         .ui-wrap{width:90%;margin:20px auto;padding:10px 10px 150px;text-align:left;border:1px solid #ddd;}
         .intro-item{margin-bottom:20px;}
@@ -21,12 +30,28 @@
         .panel,
         .collapse{width:400px;}
         /* 栅格 */
-        .grid{text-align:center;line-height:15px} 
+        .grid{text-align:center;line-height:15px;*background:#000;} 
         .grid .col-content{height:30px;} 
         .grid .tip{color:#969696;font-size:12px;}
-        .grid .row .col:nth-child(odd) .col-content{background:#eee;}
-        .grid .row .col:nth-child(even) .col-content{background:#ddd;}
+        .grid .row .col:nth-child(odd){background:#eee;}
+        .grid .row .col:nth-child(even){background:#ddd;}
         </style>
+        <!--[if lt IE 9]>
+          <script srcd="./dist/js/html5shiv.min.js"></script>
+          <script src="./dist/js/respond.min.js"></script>
+          <style>
+            .row>.col{background:#eee;}
+            .row>.col+.col{background:#ddd;}
+            .row>.col+.col+.col{background:#eee;}
+            .row>.col+.col+.col+.col{background:#ddd;}
+            .row>.col+.col+.col+.col+.col{background:#eee;}
+            .row>.col+.col+.col+.col+.col+.col{background:#ddd;}
+            .row>.col+.col+.col+.col+.col+.col+.col{background:#eee;}
+            .row>.col+.col+.col+.col+.col+.col+.col+.col{background:#ddd;}
+            .row>.col+.col+.col+.col+.col+.col+.col+.col+.col{background:#eee;}
+            .row>.col+.col+.col+.col+.col+.col+.col+.col+.col+.col{background:#ddd;}
+          </style>
+        <![endif]-->
     </head>
     <body>
         <div class="ui-wrap">
@@ -656,6 +681,7 @@
             <div class="intro-item">
                 <h4 class="intro-hd highlight">grid(栅格系统)</h4>
                 <div class="intro-bd">
+                    <span id="j_windowWidth"></span>
                     <div class="grid">
                         <div class="row">
                             <div class="col col-md-3 col-lg-2">
