@@ -602,32 +602,32 @@ a{@extend .link;}
 
 /***************************************
  * name: grid
- * tips: 栅格系统 一行12个col单元
+ * tips: 栅格系统 一行10个col单元
  ****************************************/
-$gridTotal:12;
+$gridTotal:10;
 //宽度比例 始终不变,无需加xs sm md lg
-@for $i from 1 to 13{
+@for $i from 1 to $gridTotal+1{
     $w:($i/$gridTotal)*100%;
     .col-#{$i}{float:left;width:$w;}
 } 
+@mixin gridSpecial($pre){
+    .col-#{$pre}-third{float:left;width:(1/3)*100%;}//三等分
+    .col-#{$pre}-fourth{float:left;width:(1/4)*100%;}//四等分
+    .col-#{$pre}-sixth{float:left;width:(1/6)*100%;}//六等分
+    .col-#{$pre}-seventh{float:left;width:(1/7)*100%;}//七等分
+    .col-#{$pre}-eighth{float:left;width:(1/8)*100%;}//八等分
+    .col-#{$pre}-ninth{float:left;width:(1/9)*100%;}//九等分
+}
 @mixin gridDisplay($pre){
     .#{$pre}-hide{display:none;}
     .#{$pre}-show{display:block;}
     .#{$pre}-inline{display:inline-block;}
-    
 }
 @mixin gridLoopFunc($pre){
-    @for $i from 1 to 13{
+    @for $i from 1 to $gridTotal+1{
         $w:($i/$gridTotal)*100%;
         .col-#{$pre}-#{$i}{float:left;width:$w;}
     }
-}
-@mixin gridSpecial($pre){
-    .col-#{$pre}-fifth{float:left;width:20%;}//五等分
-    .col-#{$pre}-seventh{float:left;width:(1/7)*100%;}//七等分
-    .col-#{$pre}-eighth{float:left;width:(1/8)*100%;}//八等分
-    .col-#{$pre}-ninth{float:left;width:(1/9)*100%;}//九等分
-    .col-#{$pre}-tenth{float:left;width:(1/10)*100%;}//十等分
 }
 @mixin gridWidth($pre){
     @include gridSpecial($pre);
@@ -653,10 +653,9 @@ $gridTotal:12;
     .grid{width:auto}
 }
 .grid{
-    &{width:100%;margin-left:auto;margin-right:auto;@extend .cl;}
+    &{width:100%;margin-left:auto;margin-right:auto;}
     .row{@extend .cl;}
     .col{height:100%;position:relative;}
-    .col-content{padding:5px 10px;border-left:1px solid transparent;}
-    .row .col:nth-child(odd) .col-content{background:#eee;}
-    .row .col:nth-child(even) .col-content{background:#ddd;}
+    //内容之间的空隙边框等占位属性请设置于col-content上,切忌设置在col上,col只负责宽度和浮动
+    .col-content{padding:5px 10px;}
 }

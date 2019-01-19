@@ -24,6 +24,8 @@
         .grid{text-align:center;line-height:15px} 
         .grid .col-content{height:30px;} 
         .grid .tip{color:#969696;font-size:12px;}
+        .grid .row .col:nth-child(odd) .col-content{background:#eee;}
+        .grid .row .col:nth-child(even) .col-content{background:#ddd;}
         </style>
     </head>
     <body>
@@ -655,6 +657,7 @@
                 <h4 class="intro-hd highlight">grid(栅格系统)</h4>
                 <div class="intro-bd">
                     <div class="grid">
+                        <!-- 1/10 始终不变 -->
                         <div class="row">
                             <div class="col col-1">
                                 <div class=" col-content">
@@ -706,140 +709,137 @@
                                     <span class="tip">10</span>
                                 </div>
                             </div>
-                            <div class="col col-1">
-                                <div class="col-content">
-                                    <span class="tip">11</span>
-                                </div>
-                            </div>
-                            <div class="col col-1">
-                                <div class="col-content">
-                                    <span class="tip">12</span>
-                                </div>
-                            </div>
                         </div>
+                        <!-- 1/1 -->
                         <div class="row">
                             <div class="col">
                                 <div class="col-content"><span class="tip">100%</span></div>
                             </div>
                         </div>
+                        <!-- 1/2 -->
                         <div class="row">
-                            <div class="col col-xs-6">
+                            <div class="col col-xs-5">
                                 <div class="col-content">
-                                    <span class="tip">All：1/2</span>
+                                    <span class="tip">xs：1/2</span>
                                 </div>
                             </div>
-                            <div class="col col-xs-6">
+                            <div class="col col-xs-5">
                                 <div class="col-content">
                                     <span class="tip">1/2</span>
                                 </div>
                             </div>
                         </div>
+                        <!-- 1/3 -->
                         <div class="row">
-                            <div class="col col-sm-4">
+                            <div class="col col-sm-third">
                                 <div class=" col-content">
-                                    <span class="tip">≥768px：1/3</span>
+                                    <span class="tip">sm：1/3</span>
                                 </div>
                             </div>
-                            <div class="col col-sm-4">
+                            <div class="col col-sm-third">
                                 <div class="col-content">
                                     <span class="tip">1/3</span>
                                     
                                 </div>
                             </div>
-                            <div class="col col-sm-4">
+                            <div class="col col-sm-third">
                                 <div class="col-content">
                                     <span class="tip">1/3</span>
                                 </div>
                             </div>
                         </div>
+                        <!-- 1/4 -->
                         <div class="row">
-                            <div class="col col-md-3">
+                            <div class="col col-md-fourth">
                                 <div class=" col-content">
-                                    <span class="tip">≥992px：1/4</span>
+                                    <span class="tip">md：1/4</span>
                                 </div>
                             </div>
-                            <div class="col col-md-3">
+                            <div class="col col-md-fourth">
                                 <div class="col-content">
                                     <span class="tip">1/4</span>
                                     
                                 </div>
                             </div>
-                            <div class="col col-md-3">
+                            <div class="col col-md-fourth">
                                 <div class="col-content">
                                     <span class="tip">1/4</span>
                                 </div>
                             </div>
-                            <div class="col col-md-3">
+                            <div class="col col-md-fourth">
                                 <div class="col-content">
                                     <span class="tip">1/4</span>
                                 </div>
                             </div>
                         </div>
+                        <!-- 1/5 -->
                         <div class="row">
-                            <div class="col col-lg-fifth">
+                            <div class="col col-lg-2">
                                 <div class=" col-content">
-                                    <span class="tip">≥1120px：1/5</span>
+                                    <span class="tip">lg：1/5</span>
                                 </div>
                             </div>
-                            <div class="col col-lg-fifth">
+                            <div class="col col-lg-2">
                                 <div class="col-content">
                                     <span class="tip">1/5</span>
                                     
                                 </div>
                             </div>
-                            <div class="col col-lg-fifth">
+                            <div class="col col-lg-2">
                                 <div class="col-content">
                                     <span class="tip">1/5</span>
                                 </div>
                             </div>
-                            <div class="col col-lg-fifth">
+                            <div class="col col-lg-2">
                                 <div class="col-content">
                                     <span class="tip">1/5</span>
                                 </div>
                             </div>
-                            <div class="col col-lg-fifth">
+                            <div class="col col-lg-2">
                                 <div class="col-content">
                                     <span class="tip">1/5</span>
                                 </div>
                             </div>
                         </div>
+                        <!-- 1/6 -->
                         <div class="row">
-                            <div class="col col-md-2">
+                            <div class="col col-md-sixth">
                                 <div class="col-content">
-                                    <span class="tip">≥992px：1/6</span>
+                                    <span class="tip">md：1/6</span>
                                 </div>
                             </div>
-                            <div class="col col-md-2">
+                            <div class="col col-md-sixth">
                                 <div class="col-content">
                                     <span class="tip">1/6</span>
                                     
                                 </div>
                             </div>
-                            <div class="col col-md-2">
+                            <div class="col col-md-sixth">
                                 <div class="col-content">
                                     <span class="tip">1/6</span>
                                 </div>
                             </div>
-                            <div class="col col-md-2">
+                            <div class="col col-md-sixth">
                                 <div class="col-content">
                                     <span class="tip">1/6</span>
                                 </div>
                             </div>
-                            <div class="col col-md-2">
+                            <div class="col col-md-sixth">
                                 <div class="col-content">
                                     <span class="tip">1/6</span>
                                 </div>
                             </div>
-                            <div class="col col-md-2">
+                            <div class="col col-md-sixth">
                                 <div class="col-content">
                                     <span class="tip">1/6</span>
                                 </div>
                             </div>
                         </div>
+                        <!-- 1/7 -->
                         <div class="row">
                             <div class="col col-sm-seventh">
                                 <div class="col-content">
-                                    <span class="tip">≥768px：1/7</span>
+                                    <span class="tip">sm：1/7</span>
                                 </div>
                             </div>
                             <div class="col col-sm-seventh">
@@ -874,10 +874,11 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- 1/8 -->
                         <div class="row">
                             <div class="col col-xs-eighth">
                                 <div class="col-content">
-                                    <span class="tip">All：1/8</span>
+                                    <span class="tip">xs：1/8</span>
                                 </div>
                             </div>
                             <div class="col col-xs-eighth">
@@ -917,10 +918,11 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- 1/9 -->
                         <div class="row">
                             <div class="col col-sm-ninth">
                                 <div class="col-content">
-                                    <span class="tip">≥768px：1/9</span>
+                                    <span class="tip">sm：1/9</span>
                                 </div>
                             </div>
                             <div class="col col-sm-ninth">
@@ -965,54 +967,54 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- 1/10 -->
                         <div class="row">
-                            <div class="col col-md-tenth">
+                            <div class="col col-md-1">
                                 <div class="col-content">
-                                    <span class="tip">≥992px：1/10</span>
+                                    <span class="tip">md:1/10</span>
                                 </div>
                             </div>
-                            <div class="col col-md-tenth">
-                                <div class="col-content">
-                                    <span class="tip">1/10</span>
-                                    
-                                </div>
-                            </div>
-                            <div class="col col-md-tenth">
+                            <div class="col col-md-1">
                                 <div class="col-content">
                                     <span class="tip">1/10</span>
                                 </div>
                             </div>
-                            <div class="col col-md-tenth">
+                            <div class="col col-md-1">
                                 <div class="col-content">
                                     <span class="tip">1/10</span>
                                 </div>
                             </div>
-                            <div class="col col-md-tenth">
+                            <div class="col col-md-1">
                                 <div class="col-content">
                                     <span class="tip">1/10</span>
                                 </div>
                             </div>
-                            <div class="col col-md-tenth">
+                            <div class="col col-md-1">
                                 <div class="col-content">
                                     <span class="tip">1/10</span>
                                 </div>
                             </div>
-                            <div class="col col-md-tenth">
+                            <div class="col col-md-1">
                                 <div class="col-content">
                                     <span class="tip">1/10</span>
                                 </div>
                             </div>
-                            <div class="col col-md-tenth">
+                            <div class="col col-md-1">
                                 <div class="col-content">
                                     <span class="tip">1/10</span>
                                 </div>
                             </div>
-                            <div class="col col-md-tenth">
+                            <div class="col col-md-1">
                                 <div class="col-content">
                                     <span class="tip">1/10</span>
                                 </div>
                             </div>
-                            <div class="col col-md-tenth">
+                            <div class="col col-md-1">
+                                <div class="col-content">
+                                    <span class="tip">1/10</span>
+                                </div>
+                            </div>
+                            <div class="col col-md-1">
                                 <div class="col-content">
                                     <span class="tip">1/10</span>
                                 </div>
