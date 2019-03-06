@@ -23,7 +23,7 @@
  * name: variable
  * tips: 全局变量
  ****************************************/
-$theme:#e84d3c;
+$theme:#c00;
 $blue:#007bff; 
 $success:#5cb85c; 
 $warm:#eea236;
@@ -619,7 +619,7 @@ a{@extend .link;}
 
 $gridTotal:10;
 //宽度比例 始终不变,无需加xs sm md lg
-@for $i from 1 to $gridTotal+1{
+@for $i from 1 through $gridTotal{
     $w:($i/$gridTotal)*100%;
     .col-#{$i}{float:left;width:$w;}
 }
@@ -642,7 +642,7 @@ $gridTotal:10;
 }
 @mixin gridLoopFunc($pre){
     @include gridFloat(con-#{$pre});
-    @for $i from 1 to $gridTotal+1{
+    @for $i from 1 through $gridTotal{
         $w:($i/$gridTotal)*100%;
         .col-#{$pre}-#{$i}{width:$w;max-width:$w;}
         .#{$pre}-pull-#{$i}{left:$w;}//pull为设置left值

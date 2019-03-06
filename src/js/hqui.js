@@ -714,7 +714,22 @@ function getParams(path) {
     return obj;
 }
 
-/*测试函数*/
-function test() {
-    return true;
+//对象类型检查
+function isType(o) {
+    if (o === null) return 'Null';
+    if (o === undefined) return 'Undefined';
+    return Object.prototype.toString.call(o).slice(8, -1); //[object Array]
+}
+//对象深度克隆
+function deepClone(obj) {
+    var newObj, key, typeStr = isType(obj);
+    newObj = typeStr === 'Array' ? [] : (typeStr === 'Object' ? {} : newObj);
+    for (key in obj) {
+        var item = obj[key];
+        if (isType(item) === 'Array' || isType(item) === 'Object') {
+            item = deepClone(item); //递归调用
+        }
+        newObj[key] = item;
+    }
+    return newObj;
 }
