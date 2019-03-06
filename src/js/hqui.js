@@ -687,14 +687,14 @@ function telFormat(tel, space) {
     space = space ? space : ' ';
     return String(tel).replace(/(\d{3})(\d{4})(\d{3})/, '$1' + space + '$2' + space + '$3');
 }
-//获取路径文件信息(文件名、后缀名)
+//获取路径文件信息(文件路径、后缀名)
 /*var path = "C:\\Users\\sungang\\Desktop\\temp\\email\\index.html";
 var href = window.location.href;
 var url = 'https://www.example.com/search/LM358.html?type=1&num=1';*/
 function getFileInfo(filePath, key) {
     filePath = filePath.split('?')[0]; //去参数
-    var re = /([^\.\/\\]+)\.([a-z]+)$/i,
-        resultArr = re.exec(filePath),
+    var re = /([^\.\/\\]+)\.([a-z]+)$/i, //如 index.html
+        resultArr = re.exec(filePath), //exec 返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。
         info = {};
     if (resultArr) {
         info.name = resultArr[1];
@@ -709,6 +709,7 @@ function getParams(path) {
     path = path ? path : window.location.href;
     //[^\?&=]+ 表示不含?或&或=的连续字符，加上()就是提取对应字符串
     path.replace(/([^\?&=]+)=([^\?&=]*)/gi, function(rs, $1, $2, offset, source) {
+        //rs(匹配到的结果) $1 $n(匹配到的第1个 第n个结果) offset(当前匹配在source源文件中的起始位置) 
         obj[$1] = $2;
     });
     return obj;
