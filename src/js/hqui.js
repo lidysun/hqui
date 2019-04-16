@@ -634,6 +634,63 @@ $(function() {
         });
     };
     $('.collapse').collapse('click');
+
+    //table表格
+    $.fn.table = function(option) {
+        option = option ? option : {};
+        return $(this).each(function() {
+            var $me = $(this), //总容器
+                $contentWrap = $me.find('.table-content-wrap'), //内容总容器
+                $content = $me.find('.table-body'), //内容
+                $colgroup = $me.find('colgroup'), //共享表格单元格宽度
+                //结构中若有thead 则应该有对应的tbody,若无thead则不应有tbody(让浏览器自动渲染生成tbody)
+                $customHead = $content.find('thead'), //自定义的thead
+                $head = $customHead.length ? $customHead : $content.find('tr').first(),
+                $headNew = $head.clone(true), //复制thead及其元素事件
+                $body = $customHead.length ? $content.find('tbody') : $content.find('tr').not(':first');
+            $me.css('width', $head.outerWidth());
+            if (option.headFixed) {
+                if (!$colgroup.length) {
+                    throw "please place '<colgroup>' element before fixing table head !";
+                }
+                $me.addClass('table-head-fixed');
+                $contentWrap.prepend($headNew);
+                // 若wrap内部有元素时，IE 7/8报错
+                // $headNew.wrap('<div class="table-head-wrap"><table class="table-head">' + $colgroup.html() + '</table></div>');
+                $headNew.wrap('<div class="table-head-wrap"><table class="table-head"></table></div>');
+                $headNew.parent('.table-head').prepend($colgroup.prop('outerHTML'));
+                $head.css('display', 'none');
+            }
+            if (option.height) {
+                var headHeight = $head.outerHeight(true),
+                    tableHeight = $content.outerHeight(true);
+                if (tableHeight + headHeight > option.height) {
+                    if (option.headFixed) {
+                        //高度减去table-head 1px ,table-content-wrap 2px 边框
+                        $content.wrap('<div class="table-body-wrap"></div>').parent().css('height', option.height - headHeight - 3);
+                        $headNew.parent().css('marginRight', 17); //17px滚动条距离
+                    } else {
+                        $contentWrap.css('height', option.height - 2);
+                        // $contentWrap.css('borderRightWidth', '0px');
+                    }
+                } else {
+                    $contentWrap.css('borderRightWidth', '0px');
+                }
+            } else {
+                $contentWrap.css('borderRightWidth', '0px');
+            }
+
+        });
+    };
+    $('.table-default').table();
+    $('.table-danger').table({
+        height: 120
+    });
+    $('.table-success').table({
+        headFixed: 1,
+        height: 90
+    });
+
 });
 
 /***************************************

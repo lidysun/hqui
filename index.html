@@ -21,6 +21,7 @@
         .intro-item{margin-bottom:20px;}
         /* 跑马灯 */
         .intro-hd{font-size:18px;line-height:18px;font-weight:500;margin-bottom:15px;padding-left:10px;border-left:4px solid #cc0000;}
+        .intro-hd-sub{font-size:14px;line-height:14px;font-weight:500;margin:15px 14px 6px;font-style:italic;}
         .marquee-container{border:1px solid #ddd;margin-bottom:15px;width:300px;overflow:hidden;}
         .marquee-container li{padding:10px;width:280px;border-right:1px solid #fff;background:#f2f2f2;}
         /* 轮播图 */
@@ -1094,6 +1095,170 @@
                                     <span class="tip">1/10</span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="intro-item">
+                <h4 class="intro-hd highlight">表格</h4>
+                <div class="intro-bd">
+                    <h2 class="intro-hd-sub">默认表格</h2>
+                    <div class="table table-default">
+                        <div class="table-content-wrap">
+                            <table class="table-body">
+                                <!-- 若需要固定表格头部时，请使用colgroup来共享表格头部和主内容之间的单元格宽度 -->
+                                <colgroup>
+                                    <col width="100" span="5"/>
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th onclick="console.log('click event;')">姓名</th>
+                                        <th>年龄</th>
+                                        <th>性别</th>
+                                        <th>特长/获奖</th>
+                                        <th>备注</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>奋斗者</td>
+                                        <td>28</td>
+                                        <td>男</td>
+                                        <td>摄影/市二等</td>
+                                        <td rowspan="2">腿特长</td>
+                                    </tr>
+                                    <tr>
+                                        <td>lidysun</td>
+                                        <td>26</td>
+                                        <td>女</td>
+                                        <td>coding</td>
+                                    </tr>
+                                    <tr>
+                                        <td>lidysir</td>
+                                        <td>27</td>
+                                        <td>男</td>
+                                        <td colspan="2">无</td>
+                                    </tr>
+                                    <tr>
+                                        <td>lidysir</td>
+                                        <td>27</td>
+                                        <td>男</td>
+                                        <td colspan="2">无</td>
+                                    </tr>
+                                    <tr>
+                                        <td>lidysir</td>
+                                        <td>27</td>
+                                        <td>男</td>
+                                        <td colspan="2">无</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <h2 class="intro-hd-sub">固定高度</h2>
+                    <div class="table table-danger">
+                        <div class="table-content-wrap">
+                            <table class="table-body">
+                                <!-- 若需要固定表格头部时，请使用colgroup来共享表格头部和主内容之间的单元格宽度 -->
+                                <colgroup>
+                                    <col width="100" span="5"/>
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th onclick="console.log('click event;')">姓名</th>
+                                        <th>年龄</th>
+                                        <th>性别</th>
+                                        <th>特长/获奖</th>
+                                        <th>备注</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>奋斗者</td>
+                                        <td>28</td>
+                                        <td>男</td>
+                                        <td>摄影/市二等</td>
+                                        <td rowspan="2">腿特长</td>
+                                    </tr>
+                                    <tr>
+                                        <td>lidysun</td>
+                                        <td>26</td>
+                                        <td>女</td>
+                                        <td>coding</td>
+                                    </tr>
+                                    <tr>
+                                        <td>lidysir</td>
+                                        <td>27</td>
+                                        <td>男</td>
+                                        <td colspan="2">无</td>
+                                    </tr>
+                                    <tr>
+                                        <td>lidysir</td>
+                                        <td>27</td>
+                                        <td>男</td>
+                                        <td colspan="2">无</td>
+                                    </tr>
+                                    <tr>
+                                        <td>lidysir</td>
+                                        <td>27</td>
+                                        <td>男</td>
+                                        <td colspan="2">无</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <h2 class="intro-hd-sub">固定高度和表头</h2>
+                    <div class="table table-success">
+                        <div class="table-content-wrap">
+                            <table class="table-body">
+                                <!-- 若需要固定表格头部时，请使用colgroup来共享表格头部和主内容之间的单元格宽度 -->
+                                <colgroup>
+                                    <col width="100" span="5"/>
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th onclick="console.log('click event;')">姓名</th>
+                                        <th>年龄</th>
+                                        <th>性别</th>
+                                        <th>特长/获奖</th>
+                                        <th>备注</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>奋斗者</td>
+                                        <td>28</td>
+                                        <td>男</td>
+                                        <td>摄影/市二等</td>
+                                        <td rowspan="2">腿特长</td>
+                                    </tr>
+                                    <tr>
+                                        <td>lidysun</td>
+                                        <td>26</td>
+                                        <td>女</td>
+                                        <td>coding</td>
+                                    </tr>
+                                    <tr>
+                                        <td>lidysir</td>
+                                        <td>27</td>
+                                        <td>男</td>
+                                        <td colspan="2">无</td>
+                                    </tr>
+                                    <tr>
+                                        <td>lidysir</td>
+                                        <td>27</td>
+                                        <td>男</td>
+                                        <td colspan="2">无</td>
+                                    </tr>
+                                    <tr>
+                                        <td>lidysir</td>
+                                        <td>27</td>
+                                        <td>男</td>
+                                        <td colspan="2">无</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
